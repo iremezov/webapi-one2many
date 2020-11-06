@@ -25,11 +25,7 @@ public class PersonController {
     @Autowired
     private MsisdnRepository msisdnRepository;
 
-    /**
-     * Get all users list.
-     *
-     * @return the list
-     */
+
     @GetMapping("/persons")
     public List<Person> getAllUsers() {
         return personRepository.findAll();
