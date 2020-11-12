@@ -1,14 +1,12 @@
 package com.example.webapi.controller;
 
 import com.example.webapi.model.Catalog;
-import com.example.webapi.model.Person;
 import com.example.webapi.repository.CatalogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 
 @RestController
 @RequestMapping("/api/catalog")

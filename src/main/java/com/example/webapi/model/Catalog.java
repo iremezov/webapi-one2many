@@ -1,6 +1,5 @@
 package com.example.webapi.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -17,6 +16,9 @@ public class Catalog {
     @Column(nullable = false)
     @Size(max = 100)
     private String Name;
+
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "catalog")
+    private List<Product> products;
 
     public long getId() {
         return id;
@@ -36,9 +38,6 @@ public class Catalog {
 
     Catalog(){}
 
-
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "catalog")
-    private List<Product> products;
 
     public List<Product> getProducts() {
         return products;

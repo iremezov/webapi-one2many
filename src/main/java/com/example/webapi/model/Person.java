@@ -1,13 +1,10 @@
 package com.example.webapi.model;
 
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table
@@ -30,8 +27,12 @@ public class Person {
     @CreatedDate
     private Date createdAt;
 
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "person")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "person")
     private List<Msisdn> msisdns;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "person")
+    private List<Cart> carts;
+
 
     public List<Msisdn> getMsisdn() {
         return msisdns;

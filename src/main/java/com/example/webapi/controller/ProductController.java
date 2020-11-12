@@ -25,8 +25,6 @@ public class ProductController {
 
 
     @RequestMapping(value = "/addProduct", method = RequestMethod.POST, headers = "Accept=application/json")
-    @Transactional
-    @javax.transaction.Transactional
     public @ResponseBody
     Product addNewProduct (@RequestBody Product input){
         try {

@@ -1,15 +1,15 @@
 package com.example.webapi.controller;
 
 import com.example.webapi.model.Cart;
-import com.example.webapi.model.Product;
+import com.example.webapi.model.Person;
 import com.example.webapi.repository.CartRepository;
+import com.example.webapi.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/cart")
@@ -17,6 +17,8 @@ public class CartController {
 
     @Autowired
     private CartRepository cartRepository;
+    @Autowired
+    private PersonRepository personRepository;
 
     @RequestMapping(value = "/addCart", method = RequestMethod.POST, headers = "Accept=application/json")
     public @ResponseBody
@@ -42,16 +44,12 @@ public class CartController {
 
 
     @RequestMapping(value = "/getCartByUserId", method = RequestMethod.POST, headers = "Accept=application/json")
-    public List<Cart> getAllProducts(@RequestBody Cart input) {
-        return cartRepository.findByUserId(input.getUserId());
+    public Optional<List<Cart>> getAllProducts(@RequestBody Person input) {
+
+        return cartRepository.findByPerson(input);
     }
 
-/*
-    @RequestMapping(value = "/getCartByUserIdv1", method = RequestMethod.POST, headers = "Accept=application/json")
-    public ResponseEntity<Cart> getCartByUserIdv(@RequestBody Cart input){
-        return new ResponseEntity<Cart>(cartRepository.findById(input.getProductId()).get(), HttpStatus.OK);
-    }
-*/
+
 
 
 

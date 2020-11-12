@@ -33,7 +33,7 @@ public class PersonController {
 
 
     @RequestMapping(value = "/addPerson", method = RequestMethod.POST, headers = "Accept=application/json")
-    public @ResponseBody String addNewPerson (@RequestBody Person input){
+    public @ResponseBody Person addNewPerson (@RequestBody Person input){
         Person n = new Person();
         n.setFirstName(input.getFirstName());
         n.setLastName(input.getLastName());
@@ -47,7 +47,7 @@ public class PersonController {
         }
 
         personRepository.save(n);
-        return "Saved";
+        return n;
     }
 
     @RequestMapping(value = "/getPersonById", method = RequestMethod.POST, headers = "Accept=application/json")

@@ -1,5 +1,8 @@
 package com.example.webapi.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -14,13 +17,11 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
-    @Size(max = 4)
-    private Integer userId;
-
-    @Column(nullable = false)
-    @Size(max = 4)
-    private long productId;
+    @ManyToMany
+    @JoinTable(name = "CART_PRODUCT",
+            joinColumns = @JoinColumn(name = "CART_ID"),
+            inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID"))
+    private List<Product> products;
 
     @Column(name = "ins_date", nullable = false)
     @CreatedDate
@@ -29,6 +30,10 @@ public class Cart {
     @Column(nullable = false)
     @Size(max = 2)
     private Integer State;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Person person;
 
     Cart(){}
 
@@ -40,20 +45,12 @@ public class Cart {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(long productId) {
-        this.productId = productId;
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     public Date getInsDate() {
@@ -71,19 +68,6 @@ public class Cart {
     public void setState(Integer state) {
         State = state;
     }
-/*
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_id")
-    private Product product;
-
-
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "PERSON_CARD",
-            joinColumns = @JoinColumn(name = "PERSON_ID"),
-            inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID")
-    )
-    private List<Product> productList;
-*/
 
 
 

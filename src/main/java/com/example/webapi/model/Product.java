@@ -8,6 +8,7 @@ import org.springframework.data.annotation.CreatedDate;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table
@@ -32,6 +33,32 @@ public class Product {
     @Column(nullable = false)
     @Size(max = 400)
     private Integer State;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToMany(cascade = { CascadeType.ALL }, mappedBy = "products", targetEntity = Cart.class)
+    private List<Cart> cart;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Catalog catalog;
+
+
+
+    public List<Cart> getCart() {
+        return cart;
+    }
+
+    public void setCart(List<Cart> cart) {
+        this.cart = cart;
+    }
+
+    public Catalog getCatalog() {
+        return catalog;
+    }
+
+    public void setCatalog(Catalog catalog) {
+        this.catalog = catalog;
+    }
 
     public long getId() {
         return id;
@@ -74,12 +101,6 @@ public class Product {
     }
 
     Product(){}
-
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Catalog catalog;
-
-
 
 
 }

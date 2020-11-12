@@ -37,16 +37,17 @@ public class MsisdnController {
     @Transactional
     @javax.transaction.Transactional
     public @ResponseBody
-    String addNewPerson (@RequestBody Msisdn input){
+    Msisdn addNewPerson (@RequestBody Msisdn input){
         try {
             input.setInsDate(new Date());
             msisdnRepository.save(input);
-            return "Saved";
         }
         catch (Exception e){
             e.printStackTrace();
-            return "error";
+            input.setId(-1);
         }
+
+        return input;
     }
 
 

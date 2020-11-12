@@ -30,7 +30,6 @@ public class Msisdn {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne(fetch = FetchType.EAGER)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    //@JoinColumn(name="person_id", nullable = false)
     private Person person;
 
     public long getId() {
