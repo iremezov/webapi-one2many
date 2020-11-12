@@ -75,9 +75,8 @@ public class Product {
 
     Product(){}
 
-    @JsonProperty(access = JsonProperty.Access.AUTO)
+    //@JsonProperty(access = JsonProperty.Access.AUTO)
     @ManyToOne(fetch = FetchType.EAGER)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Catalog catalog;
 
 

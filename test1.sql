@@ -1,6 +1,25 @@
 ﻿# Host: localhost  (Version 5.5.5-10.4.11-MariaDB)
-# Date: 2020-11-04 17:50:15
+# Date: 2020-11-12 12:19:31
 # Generator: MySQL-Front 6.1  (Build 1.26)
+
+
+#
+# Structure for table "cart"
+#
+
+DROP TABLE IF EXISTS `cart`;
+CREATE TABLE `cart` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `state` int(11) NOT NULL,
+  `ins_date` datetime NOT NULL,
+  `product_id` bigint(20) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
+# Data for table "cart"
+#
 
 
 #
@@ -12,13 +31,13 @@ CREATE TABLE `catalog` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "catalog"
 #
 
-INSERT INTO `catalog` VALUES (1,'Phone'),(2,'Tablet');
+INSERT INTO `catalog` VALUES (1,'Phone'),(2,'Tablet'),(3,'Напитки');
 
 #
 # Structure for table "person"
@@ -32,7 +51,7 @@ CREATE TABLE `person` (
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "person"
@@ -54,7 +73,7 @@ CREATE TABLE `msisdn` (
   UNIQUE KEY `UK_amxg8u82vtb4p66ji776qarge` (`msisdn`),
   KEY `FKhhhf19galokxtnk5t9qee0kua` (`person_id`),
   CONSTRAINT `FKhhhf19galokxtnk5t9qee0kua` FOREIGN KEY (`person_id`) REFERENCES `person` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 #
 # Data for table "msisdn"
@@ -75,11 +94,12 @@ CREATE TABLE `product` (
   `ins_date` datetime NOT NULL,
   `catalog_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK8oaejqr5kmuivpskpr3fxcg1m` (`catalog_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `FK8oaejqr5kmuivpskpr3fxcg1m` (`catalog_id`),
+  CONSTRAINT `FK8oaejqr5kmuivpskpr3fxcg1m` FOREIGN KEY (`catalog_id`) REFERENCES `catalog` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "product"
 #
 
-INSERT INTO `product` VALUES (1,'lalalal test','prod1',1,'2020-11-04 12:47:03',1),(3,'????????????? ????????','Calaty TAB 1',1,'2020-11-04 12:48:00',2);
+INSERT INTO `product` VALUES (1,'китай фон','Chinaphone 1',1,'2020-11-04 12:47:03',1),(3,'Планшет кампунг','Calaty TAB 1',1,'2020-11-04 12:48:00',2),(4,'Мобила 2000х','Samsung x900',1,'2020-11-12 07:09:19',1),(5,'Мобила 2000х','Samsung x100',1,'2020-11-12 07:09:25',1),(6,'Завод кола','Coca Cola',1,'2020-11-12 07:11:01',3),(7,'Завод кола','Fanta',1,'2020-11-12 07:11:05',3),(8,'Завод кола','Sprite',1,'2020-11-12 07:11:13',3);

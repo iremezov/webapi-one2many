@@ -12,15 +12,14 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/product")
 public class ProductController {
 
     @Autowired
     private ProductRepository productRepository;
 
-    @GetMapping("/product")
+    @GetMapping("/products")
     public List<Product> getAllProducts() {
-        //return productRepository.findAll();
         return productRepository.findActiveProducts(1);
     }
 
@@ -29,15 +28,17 @@ public class ProductController {
     @Transactional
     @javax.transaction.Transactional
     public @ResponseBody
-    String addNewProduct (@RequestBody Product input){
+    Product addNewProduct (@RequestBody Product input){
         try {
             input.setInsDate(new Date());
             productRepository.save(input);
-            return "Saved";
+            return input;
         }
         catch (Exception e){
             e.printStackTrace();
-            return "error";
+            input.setId(-1);
+            input.setDescription("Error");
+            return input;
         }
     }
 

@@ -37,7 +37,7 @@ public class Catalog {
     Catalog(){}
 
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "catalog")
     private List<Product> products;
 

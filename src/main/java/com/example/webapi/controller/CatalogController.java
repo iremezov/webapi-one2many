@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/catalog")
 public class CatalogController {
 
     @Autowired
@@ -19,9 +19,9 @@ public class CatalogController {
 
     @RequestMapping(value = "/addCatalog", method = RequestMethod.POST, headers = "Accept=application/json")
     public @ResponseBody
-    String addNewCatalog (@RequestBody Catalog input){
+    Catalog addNewCatalog (@RequestBody Catalog input){
         catalogRepository.save(input);
-        return "Saved";
+        return input;
     }
 
     @RequestMapping(value = "/getProductsByCatalogId", method = RequestMethod.POST, headers = "Accept=application/json")
