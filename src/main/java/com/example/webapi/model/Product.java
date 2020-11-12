@@ -75,9 +75,10 @@ public class Product {
 
     Product(){}
 
-    //@JsonProperty(access = JsonProperty.Access.AUTO)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne(fetch = FetchType.EAGER)
     private Catalog catalog;
+
 
 
 
