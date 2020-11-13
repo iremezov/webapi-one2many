@@ -46,7 +46,8 @@ public class CartController {
     @RequestMapping(value = "/getCartByUserId", method = RequestMethod.POST, headers = "Accept=application/json")
     public Optional<List<Cart>> getAllProducts(@RequestBody Person input) {
 
-        return cartRepository.findByPerson(input);
+        //return cartRepository.findByPerson(input);
+        return cartRepository.findByPerson(input.getId());
     }
 
 
