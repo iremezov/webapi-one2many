@@ -4,3 +4,4 @@ Functionality
 2. Map user with email
 3. add/list catalog, product
 4. list by catalog, status, products
+5. Map product to person - UserCart
