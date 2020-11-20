@@ -1,5 +1,6 @@
 package com.example.webapi.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -23,6 +24,8 @@ public class Cart {
             inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID"))
     private List<Product> products;
 
+
+    @JsonFormat(pattern = "yyyy.MM.dd HH:mm:ss")
     @Column(name = "ins_date", nullable = false)
     @CreatedDate
     private Date insDate;

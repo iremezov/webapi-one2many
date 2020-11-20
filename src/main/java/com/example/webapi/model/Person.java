@@ -28,6 +28,7 @@ public class Person {
     private Date createdAt;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "person")
+    @OrderBy("ins_date DESC")
     private List<Msisdn> msisdns;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "person")

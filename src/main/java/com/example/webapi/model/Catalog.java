@@ -1,6 +1,9 @@
 package com.example.webapi.model;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.List;

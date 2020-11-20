@@ -2,6 +2,8 @@ package com.example.webapi.controller;
 
 import com.example.webapi.model.Cart;
 import com.example.webapi.model.Person;
+import com.example.webapi.model.Price;
+import com.example.webapi.model.Product;
 import com.example.webapi.repository.CartRepository;
 import com.example.webapi.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,9 +47,28 @@ public class CartController {
 
     @RequestMapping(value = "/getCartByUserId", method = RequestMethod.POST, headers = "Accept=application/json")
     public Optional<List<Cart>> getAllProducts(@RequestBody Person input) {
-
-        //return cartRepository.findByPerson(input);
         return cartRepository.findByPerson(input.getId());
+    }
+
+    @RequestMapping(value = "/getCartPrice", method = RequestMethod.POST, headers = "Accept=application/json")
+    public Price getCartPriceByCartId(@RequestBody Price input){
+
+        double sum = 0D;
+
+        Optional<List<Cart>> cartList = cartRepository.findByPerson(input.getInPersonId());
+
+        for(Cart c: cartList.get()){
+
+            if(c.getId() == input.getInCartId()) {
+                for (Product p : c.getProducts()) {
+                    sum += p.getPrice();
+                }
+            }
+
+        }
+
+        input.setPrice(sum);
+        return input;
     }
 
 
