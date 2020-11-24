@@ -20,8 +20,8 @@ public class Catalog {
     @Size(max = 100)
     private String Name;
 
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "catalog")
-    private List<Product> products;
+    //@OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "catalog")
+    //private List<Product> products;
 
 
     public long getId() {
@@ -42,7 +42,7 @@ public class Catalog {
 
     Catalog(){}
 
-
+/*
     public List<Product> getProducts() {
         return products;
     }
@@ -50,4 +50,6 @@ public class Catalog {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
+
+ */
 }

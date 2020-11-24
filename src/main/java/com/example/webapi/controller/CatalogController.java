@@ -24,13 +24,12 @@ public class CatalogController {
         return input;
     }
 
-    @RequestMapping(value = "/getProductsByCatalogId", method = RequestMethod.POST, headers = "Accept=application/json")
-    public ResponseEntity<Catalog> getProductsByPersonId(@RequestBody Catalog input){
-        //add try!!!!
+    @RequestMapping(value = "/getCatalogById", method = RequestMethod.POST, headers = "Accept=application/json")
+    public ResponseEntity<Catalog> getCatalogById(@RequestBody Catalog input){
         return new ResponseEntity<Catalog>(catalogRepository.findById(input.getId()).get(), HttpStatus.OK);
     }
 
-    @GetMapping("/getProductsWithCatalog")
+    @GetMapping("/getAllCatalogs")
     public List<Catalog> getAllCatalogs() {
         return catalogRepository.findAll();
     }

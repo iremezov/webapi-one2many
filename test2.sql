@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version 5.5.5-10.4.11-MariaDB)
-# Date: 2020-11-19 10:20:39
+# Date: 2020-11-24 12:42:13
 # Generator: MySQL-Front 6.1  (Build 1.26)
 
 
@@ -19,6 +19,22 @@ CREATE TABLE `catalog` (
 #
 
 INSERT INTO `catalog` VALUES (1,'Еда'),(3,'Напитки');
+
+#
+# Structure for table "catalog1"
+#
+
+DROP TABLE IF EXISTS `catalog1`;
+CREATE TABLE `catalog1` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
+# Data for table "catalog1"
+#
+
 
 #
 # Structure for table "person"
@@ -75,13 +91,13 @@ CREATE TABLE `cart` (
   PRIMARY KEY (`id`),
   KEY `FKo3jsgdxo6ax3cwml53qyems2j` (`person_id`),
   CONSTRAINT `FKo3jsgdxo6ax3cwml53qyems2j` FOREIGN KEY (`person_id`) REFERENCES `person` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "cart"
 #
 
-INSERT INTO `cart` VALUES (6,1,'2020-11-18 10:30:56',3),(7,1,'2020-11-19 04:21:54',2);
+INSERT INTO `cart` VALUES (6,0,'2020-11-18 10:30:56',3),(7,1,'2020-11-19 04:21:54',2),(8,1,'2020-11-19 08:59:47',3);
 
 #
 # Structure for table "product"
@@ -125,4 +141,4 @@ CREATE TABLE `cart_product` (
 # Data for table "cart_product"
 #
 
-INSERT INTO `cart_product` VALUES (6,3),(6,1),(7,1),(7,1),(7,5);
+INSERT INTO `cart_product` VALUES (6,3),(6,1),(7,1),(7,1),(7,5),(8,9),(8,3),(8,1),(8,2);
