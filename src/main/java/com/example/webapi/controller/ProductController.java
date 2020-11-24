@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.function.IntToLongFunction;
 
 @RestController
 @RequestMapping("/api/product")
@@ -25,8 +27,7 @@ public class ProductController {
 
 
     @RequestMapping(value = "/addProduct", method = RequestMethod.POST, headers = "Accept=application/json")
-    public @ResponseBody
-    Product addNewProduct (@RequestBody Product input){
+    public @ResponseBody Product addNewProduct (@RequestBody Product input){
         try {
             input.setInsDate(new Date());
             productRepository.save(input);
@@ -38,6 +39,13 @@ public class ProductController {
             input.setDescription("Error");
             return input;
         }
+    }
+
+    //@GetMapping("/getProductByCatalogId")
+    @PostMapping(path = "/getProductByCatalogId", consumes = "application/json", produces = "application/json")
+    @ResponseBody
+    public List<Product> getProductByCatalogId (@RequestBody Map<String, String> allParams){
+        return productRepository.findActiveProductsByCatalog(Integer.parseInt(allParams.get("statusId")), Integer.parseInt(allParams.get("catalogId")));
     }
 
 

@@ -23,6 +23,7 @@ public class Catalog {
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "catalog")
     private List<Product> products;
 
+
     public long getId() {
         return id;
     }

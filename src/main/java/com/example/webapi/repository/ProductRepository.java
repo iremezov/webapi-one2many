@@ -21,4 +21,12 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     )
     List<Product> findActiveProducts(@Param("state") Integer state);
 
+    @Query(
+            value = "select * from product t where state = :state and catalog_id = :catalogId",
+            nativeQuery = true
+    )
+    List<Product> findActiveProductsByCatalog(@Param("state") Integer state, @Param("catalogId") int catalogId);
+
+
+
 }

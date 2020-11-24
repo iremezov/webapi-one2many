@@ -25,4 +25,15 @@ public interface CartRepository extends JpaRepository<Cart, Long> {
     )
     Optional<List<Cart>> findByPerson(@Param("id") Long id);
 
+    @Query(
+            value = "select sum(p.price) from cart c, cart_product cp, product p\n" +
+                    "where c.person_id = :personId\n" +
+                    "  and c.state = 1\n" +
+                    "  and c.id = cp.cart_id\n" +
+                    "  and c.id = :cartId\n" +
+                    "  and cp.product_id = p.id",
+            nativeQuery = true
+    )
+    Double findSumByCartPerson(@Param("cartId") Long cartId, @Param("personId") Long personId);
+
 }

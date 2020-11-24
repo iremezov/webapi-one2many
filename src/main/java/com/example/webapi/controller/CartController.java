@@ -50,8 +50,8 @@ public class CartController {
         return cartRepository.findByPerson(input.getId());
     }
 
-    @RequestMapping(value = "/getCartPrice", method = RequestMethod.POST, headers = "Accept=application/json")
-    public Price getCartPriceByCartId(@RequestBody Price input){
+    @RequestMapping(value = "/getCartPricev2", method = RequestMethod.POST, headers = "Accept=application/json")
+    public Price getCartPriceByCartId2(@RequestBody Price input){
 
         double sum = 0D;
 
@@ -71,6 +71,11 @@ public class CartController {
         return input;
     }
 
+    @RequestMapping(value = "/getCartPrice", method = RequestMethod.POST, headers = "Accept=application/json")
+    public Price getCartPriceByCartId(@RequestBody Price input){
+        input.setPrice(cartRepository.findSumByCartPerson(input.inCartId, input.inPersonId));
+        return input;
+    }
 
 
 
