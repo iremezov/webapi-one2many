@@ -1,8 +1,12 @@
 package com.example.webapi.model;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiParam;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import java.util.Date;
 import java.util.List;
 
@@ -14,15 +18,19 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @ApiModelProperty(notes = "Person name")
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
+    @ApiModelProperty(notes = "Person last name")
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
+    @ApiModelProperty(notes = "Person email address")
     @Column(name = "email_address", nullable = false)
     private String email;
 
+    @ApiModelProperty(notes = "Date of creation, auto-insert")
     @Column(name = "created_at", nullable = true)
     @CreatedDate
     private Date createdAt;
