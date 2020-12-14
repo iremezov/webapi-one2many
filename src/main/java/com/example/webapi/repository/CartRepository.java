@@ -4,6 +4,7 @@ import com.example.webapi.model.Cart;
 import com.example.webapi.model.Person;
 import com.example.webapi.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -20,10 +21,10 @@ public interface CartRepository extends JpaRepository<Cart, Long> {
     //Optional<List<Cart>> findByPerson(Person person);
 
     @Query(
-            value = "select * from cart t where state = 1 and t.person_id = :id",
+            value = "select * from cart t where state = :state and t.person_id = :id",
             nativeQuery = true
     )
-    Optional<List<Cart>> findByPerson(@Param("id") Long id);
+    Optional<List<Cart>> findByPersonAndState(@Param("id") Long id, @Param("state") Integer state);
 
     @Query(
             value = "select sum(p.price) from cart c, cart_product cp, product p\n" +
@@ -35,5 +36,12 @@ public interface CartRepository extends JpaRepository<Cart, Long> {
             nativeQuery = true
     )
     Double findSumByCartPerson(@Param("cartId") Long cartId, @Param("personId") Long personId);
+
+
+    @Modifying(clearAutomatically = true)
+    @Query(value = "update cart set state = :state where id = :cartId",
+            nativeQuery = true)
+    void updateCartStateById(@Param("cartId") Long cartId, @Param("state") Integer state);
+
 
 }

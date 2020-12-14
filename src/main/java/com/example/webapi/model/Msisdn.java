@@ -2,6 +2,7 @@ package com.example.webapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;
@@ -15,10 +16,12 @@ import java.util.Date;
 @Table
 public class Msisdn {
 
+    @ApiModelProperty(notes = "ID of msisdn", example = "11", required = false, position = 0)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @ApiModelProperty(notes = "Person phone number", example = "998991901234", required = false, position = 1)
     @Column(nullable = false, unique = true)
     @Size(max = 15)
     private String Msisdn;

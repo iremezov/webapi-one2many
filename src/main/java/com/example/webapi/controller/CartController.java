@@ -1,14 +1,14 @@
 package com.example.webapi.controller;
 
-import com.example.webapi.model.Cart;
-import com.example.webapi.model.Person;
-import com.example.webapi.model.Price;
-import com.example.webapi.model.Product;
+import com.example.webapi.model.*;
 import com.example.webapi.repository.CartRepository;
 import com.example.webapi.repository.PersonRepository;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Console;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -30,6 +30,7 @@ public class CartController {
 
             if(input.getId() > 0){
                 input.setState(input.getState());
+
             }else{
                 input.setState(1);
             }
@@ -46,8 +47,8 @@ public class CartController {
 
 
     @RequestMapping(value = "/getCartByUserId", method = RequestMethod.POST, headers = "Accept=application/json")
-    public Optional<List<Cart>> getAllProducts(@RequestBody Person input) {
-        return cartRepository.findByPerson(input.getId());
+    public Optional<List<Cart>> getActiveProducts(@RequestBody Person input) {
+        return cartRepository.findByPersonAndState(input.getId(), 1);
     }
 
     @RequestMapping(value = "/getCartPricev2", method = RequestMethod.POST, headers = "Accept=application/json")
@@ -55,7 +56,7 @@ public class CartController {
 
         double sum = 0D;
 
-        Optional<List<Cart>> cartList = cartRepository.findByPerson(input.getInPersonId());
+        Optional<List<Cart>> cartList = cartRepository.findByPersonAndState(input.getInPersonId(), 1);
 
         for(Cart c: cartList.get()){
 
@@ -77,6 +78,27 @@ public class CartController {
         return input;
     }
 
+    @ApiOperation("Update user cart state (1-саказ в корзине, 2-саказ оплачен, 3-заказ отменен)")
+    @RequestMapping(value = "/setCartState", method = RequestMethod.POST, headers = "Accept=application/json")
+    public Response setCartState(@RequestBody Cart input){
+
+        Response r = new Response();
+
+        try {
+
+            cartRepository.updateCartStateById(input.getId(), input.getState());
+
+            r.setCode(1);
+            r.setMsg("OK");
+            return r;
+
+        }catch (Exception e){
+            r.setCode(-1);
+            r.setMsg(e.toString());
+            return r;
+        }
+
+    }
 
 
 

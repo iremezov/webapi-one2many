@@ -1,36 +1,39 @@
 package com.example.webapi.model;
 
-import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiParam;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table
+@ApiModel(description = "Class representing a user model.")
 public class Person {
 
+    @ApiModelProperty(notes = "ID of person", example = "1", position = 0)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ApiModelProperty(notes = "Person name")
+    @ApiModelProperty(notes = "Person name", example = "Joe", position = 2)
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @ApiModelProperty(notes = "Person last name")
+    @ApiModelProperty(notes = "Person last name", example = "Doe", position = 3)
+    @Size(max = 200)
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @ApiModelProperty(notes = "Person email address")
+    @ApiModelProperty(notes = "Person email address", example = "Joe.Doe@mail.com", required = true, position = 4)
+    @Size(max = 200)
     @Column(name = "email_address", nullable = false)
     private String email;
 
-    @ApiModelProperty(notes = "Date of creation, auto-insert")
+    @ApiModelProperty(notes = "Date of creation, auto-insert", required = true, position = 5)
     @Column(name = "created_at", nullable = true)
     @CreatedDate
     private Date createdAt;

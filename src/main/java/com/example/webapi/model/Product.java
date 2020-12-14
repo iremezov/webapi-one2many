@@ -18,27 +18,33 @@ import java.util.List;
 @Table
 public class Product {
 
+    @ApiModelProperty(notes = "ID of product", example = "1", required = false, position = 0)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @ApiModelProperty(notes = "Product name", example = "product #1", position = 1)
     @Column(nullable = false)
     @Size(max = 50)
     private String Name;
 
+    @ApiModelProperty(notes = "Product name", example = "very good product", position = 2)
     @Column(nullable = true)
     @Size(max = 400)
     private String Description;
 
+    @ApiModelProperty(notes = "Product insert date (auto-insert)", position = 3)
     @JsonFormat(pattern = "yyyy.MM.dd HH:mm:ss")
     @Column(name = "ins_date", nullable = false)
     @CreatedDate
     private Date insDate;
 
+    @ApiModelProperty(notes = "Product status 1-active, 0-inactive", example = "1", position = 4)
     @Column(nullable = false)
     @Size(max = 400)
     private Integer State;
 
+    @ApiModelProperty(notes = "Product price", example = "3500", position = 5)
     @Column(nullable = false)
     @Size(max = 400)
     private Double Price;

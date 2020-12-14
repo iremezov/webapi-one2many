@@ -5,6 +5,7 @@ import com.example.webapi.repository.MsisdnRepository;
 import com.example.webapi.repository.PersonRepository;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,12 +27,14 @@ public class PersonController {
     private MsisdnRepository msisdnRepository;
 
 
+    @ApiOperation("Get all available users")
     @GetMapping("/persons")
     public List<Person> getAllUsers() {
         return personRepository.findAll();
     }
 
 
+    @ApiOperation("Add|modify user")
     @RequestMapping(value = "/addPerson", method = RequestMethod.POST, headers = "Accept=application/json")
     public @ResponseBody Person addNewPerson (@RequestBody Person input){
         Person n = new Person();
@@ -50,6 +53,7 @@ public class PersonController {
         return n;
     }
 
+    @ApiOperation("Get user by ID")
     @RequestMapping(value = "/getPersonById", method = RequestMethod.POST, headers = "Accept=application/json")
     public @ResponseBody String getPersonById(@RequestBody Person input){
 
@@ -68,7 +72,7 @@ public class PersonController {
         return jsonObjectArr;
     }
 
-
+    @ApiOperation("Get by user ID it's msisdn list")
     @RequestMapping(value = "/getMsisdnByPersonId", method = RequestMethod.POST, headers = "Accept=application/json")
     public ResponseEntity<Person> getMsisdnByPersonId(@RequestBody Person input){
         return new ResponseEntity<Person>(personRepository.findById(input.getId()).get(), HttpStatus.OK);

@@ -42,7 +42,8 @@ public class ProductController {
     }
 
     //@GetMapping("/getProductByCatalogId")
-    @PostMapping(path = "/getProductByCatalogId", consumes = "application/json", produces = "application/json")
+    //@PostMapping(path = "/getProductByCatalogId", consumes = "application/json", produces = "application/json")
+    @RequestMapping(value = "/getProductByCatalogId", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
     public List<Product> getProductByCatalogId (@RequestBody Map<String, String> allParams){
         return productRepository.findActiveProductsByCatalog(Integer.parseInt(allParams.get("statusId")), Integer.parseInt(allParams.get("catalogId")));
