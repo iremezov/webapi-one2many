@@ -6,3 +6,4 @@ Functionality
 4. list by catalog, status, products
 5. Map product to person - UserCart
 6. Added swagger (http://localhost:8080/swagger-ui.html)
+7. Payment functionality: make/cancel

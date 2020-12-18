@@ -2,14 +2,10 @@ package com.example.webapi.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.ApiModelProperty;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
@@ -57,6 +53,31 @@ public class Product {
     @ManyToOne(fetch = FetchType.EAGER)
     private Catalog catalog;
 
+
+    //@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "product")
+    //private List<ProductDetail> productDetails;
+
+    /*
+        public List<ProductDetail> getProductDetails() {
+            return productDetails;
+        }
+
+        public void setProductDetails(List<ProductDetail> productDetails) {
+            this.productDetails = productDetails;
+        }
+    */
+
+
+    @OneToOne(mappedBy = "product")
+    private ProductDetail productDetails;
+
+    public ProductDetail getProductDetails() {
+        return productDetails;
+    }
+
+    public void setProductDetails(ProductDetail productDetails) {
+        this.productDetails = productDetails;
+    }
 
     public List<Cart> getCart() {
         return cart;
@@ -121,6 +142,7 @@ public class Product {
     public void setPrice(Double price) {
         Price = price;
     }
+
 
     Product(){}
 

@@ -3,6 +3,8 @@ package com.example.webapi.controller;
 import com.example.webapi.model.*;
 import com.example.webapi.repository.CartRepository;
 import com.example.webapi.repository.PersonRepository;
+import com.example.webapi.repository.ProductDetailRepository;
+import com.example.webapi.repository.ProductRepository;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -22,18 +24,28 @@ public class CartController {
     @Autowired
     private PersonRepository personRepository;
 
+    @Autowired
+    private ProductDetailRepository productDetailRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
+
     @RequestMapping(value = "/addCart", method = RequestMethod.POST, headers = "Accept=application/json")
     public @ResponseBody
     Cart addNewCart (@RequestBody Cart input){
         try {
             input.setInsDate(new Date());
+            input.setState(0);
 
-            if(input.getId() > 0){
-                input.setState(input.getState());
-
-            }else{
-                input.setState(1);
+            //recount amounts of goods
+            for (Product i : input.getProducts()){
+                Optional<Product> p = productRepository.findById(i.getId());
+                Integer totalCount = p.get().getProductDetails().getTotalCount();
+                Integer reservedCount = p.get().getProductDetails().getReserved();
+                p.get().getProductDetails().setReserved(reservedCount + 1);
+                p.get().getProductDetails().setTotalCount(totalCount - 1);
             }
+
 
             cartRepository.save(input);
             return input;
@@ -48,7 +60,7 @@ public class CartController {
 
     @RequestMapping(value = "/getCartByUserId", method = RequestMethod.POST, headers = "Accept=application/json")
     public Optional<List<Cart>> getActiveProducts(@RequestBody Person input) {
-        return cartRepository.findByPersonAndState(input.getId(), 1);
+        return cartRepository.findByPersonAndState(input.getId(), 0);
     }
 
     @RequestMapping(value = "/getCartPricev2", method = RequestMethod.POST, headers = "Accept=application/json")
@@ -56,7 +68,7 @@ public class CartController {
 
         double sum = 0D;
 
-        Optional<List<Cart>> cartList = cartRepository.findByPersonAndState(input.getInPersonId(), 1);
+        Optional<List<Cart>> cartList = cartRepository.findByPersonAndState(input.getInPersonId(), 0);
 
         for(Cart c: cartList.get()){
 
@@ -78,7 +90,7 @@ public class CartController {
         return input;
     }
 
-    @ApiOperation("Update user cart state (1-саказ в корзине, 2-саказ оплачен, 3-заказ отменен)")
+    @ApiOperation("Update user cart state (0-саказ в корзине, 1-саказ оплачен, 2-заказ отменен)")
     @RequestMapping(value = "/setCartState", method = RequestMethod.POST, headers = "Accept=application/json")
     public Response setCartState(@RequestBody Cart input){
 
@@ -99,6 +111,88 @@ public class CartController {
         }
 
     }
+
+    @RequestMapping(value = "/makePayment", method = RequestMethod.POST, headers = "Accept=application/json")
+    public @ResponseBody
+    Response makePayment (@RequestBody Cart input) {
+
+        Response r = new Response();
+
+        try{
+
+            Optional<Cart> c = cartRepository.findById(input.getId());
+
+
+            if(c.get().getState() == 0){
+
+                c.get().setState(1);
+                for (Product p : c.get().getProducts()) {
+
+                    Integer reservedCount = p.getProductDetails().getReserved();
+                    ProductDetail productDetail = p.getProductDetails();
+                    productDetail.setReserved(reservedCount - 1);
+                    productDetailRepository.save(productDetail);
+                    System.out.println("ProductId:" + p.getId() + "|ProductName:" + p.getName() + "|" + reservedCount);
+                }
+
+            }else{
+                r.setCode(-1);
+                r.setMsg("Already payed or canceled");
+                return r;
+            }
+
+            r.setCode(1);
+            r.setMsg("OK");
+            return r;
+
+        }catch (Exception e){
+            r.setCode(-1);
+            r.setMsg(e.toString());
+            return r;
+        }
+
+    }
+
+    @RequestMapping(value = "/cancelPayment", method = RequestMethod.POST, headers = "Accept=application/json")
+    public @ResponseBody
+    Response cancelPayment (@RequestBody Cart input) {
+        Response r = new Response();
+
+        try{
+
+            Optional<Cart> c = cartRepository.findById(input.getId());
+
+            if(c.get().getState() == 0){
+
+                c.get().setState(2);
+
+                for (Product p : c.get().getProducts()) {
+                    Integer reservedCount = p.getProductDetails().getReserved();
+                    Integer totalCount = p.getProductDetails().getTotalCount();
+
+                    ProductDetail productDetail = p.getProductDetails();
+                    productDetail.setReserved(reservedCount - 1);
+                    productDetail.setTotalCount(totalCount + 1);
+                    productDetailRepository.save(productDetail);
+                    System.out.println("ProductId:" + p.getId() + "|ProductName:" + p.getName() + "|" + reservedCount + "|" + totalCount);
+                }
+
+            }else{
+                r.setCode(-1);
+                r.setMsg("Already payed or canceled");
+                return r;
+            }
+
+            r.setCode(1);
+            r.setMsg("OK");
+            return r;
+        }catch (Exception e){
+            r.setCode(-1);
+            r.setMsg(e.toString());
+            return r;
+        }
+    }
+
 
 
 

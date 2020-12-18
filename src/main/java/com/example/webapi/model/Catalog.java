@@ -28,9 +28,6 @@ public class Catalog {
     @Max(value = 100, message = "Name can only have a maximum length of 100")
     private String Name;
 
-    //@OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "catalog")
-    //private List<Product> products;
-
 
     public long getId() {
         return id;
@@ -50,14 +47,4 @@ public class Catalog {
 
     Catalog(){}
 
-/*
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
- */
 }
