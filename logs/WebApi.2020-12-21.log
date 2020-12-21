@@ -1,0 +1,205 @@
+2020-12-21 15:42:15,950 INFO  [restartedMain] WebApiApplication: Starting WebApiApplication on DESKTOP-7O857RT with PID 7248 (D:\javaapp\web-api\target\classes started by ria in D:\javaapp\web-api)
+2020-12-21 15:42:15,960 INFO  [restartedMain] WebApiApplication: No active profile set, falling back to default profiles: default
+2020-12-21 15:42:16,099 INFO  [restartedMain] DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-21 15:42:16,099 INFO  [restartedMain] DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-21 15:42:18,593 INFO  [restartedMain] RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-21 15:42:18,795 INFO  [restartedMain] RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 174ms. Found 6 JPA repository interfaces.
+2020-12-21 15:42:20,446 INFO  [restartedMain] TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2020-12-21 15:42:20,477 INFO  [restartedMain] Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8080"]
+2020-12-21 15:42:20,477 INFO  [restartedMain] StandardService: Starting service [Tomcat]
+2020-12-21 15:42:20,483 INFO  [restartedMain] StandardEngine: Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-21 15:42:20,696 INFO  [restartedMain] [/]: Initializing Spring embedded WebApplicationContext
+2020-12-21 15:42:20,696 INFO  [restartedMain] ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 4597 ms
+2020-12-21 15:42:21,260 INFO  [restartedMain] HikariDataSource: HikariPool-1 - Starting...
+2020-12-21 15:42:21,270 WARN  [restartedMain] DriverDataSource: Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-21 15:42:21,603 INFO  [restartedMain] HikariDataSource: HikariPool-1 - Start completed.
+2020-12-21 15:42:21,865 INFO  [restartedMain] ThreadPoolTaskExecutor: Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-21 15:42:21,955 INFO  [task-1] LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-21 15:42:22,105 INFO  [task-1] Version: HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-21 15:42:22,479 INFO  [task-1] Version: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-21 15:42:22,661 WARN  [restartedMain] JpaBaseConfiguration$JpaWebConfiguration: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-21 15:42:23,013 INFO  [task-1] Dialect: HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-12-21 15:42:23,426 INFO  [restartedMain] EndpointLinksResolver: Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-21 15:42:23,617 INFO  [restartedMain] PropertySourcedRequestMappingHandlerMapping: Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-12-21 15:42:23,929 INFO  [restartedMain] OptionalLiveReloadServer: LiveReload server is running on port 35729
+2020-12-21 15:42:25,752 INFO  [task-1] JtaPlatformInitiator: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-21 15:42:25,772 INFO  [task-1] LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-21 15:42:26,036 INFO  [restartedMain] Http11NioProtocol: Starting ProtocolHandler ["http-nio-8080"]
+2020-12-21 15:42:26,086 INFO  [restartedMain] TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-21 15:42:26,094 INFO  [restartedMain] DocumentationPluginsBootstrapper: Context refreshed
+2020-12-21 15:42:26,147 INFO  [restartedMain] DocumentationPluginsBootstrapper: Found 1 custom documentation plugin(s)
+2020-12-21 15:42:26,217 INFO  [restartedMain] ApiListingReferenceScanner: Scanning for api listing references
+2020-12-21 15:42:26,661 INFO  [restartedMain] CachingOperationNameGenerator: Generating unique operation named: addNewPersonUsingPOST_1
+2020-12-21 15:42:26,781 INFO  [restartedMain] DeferredRepositoryInitializationListener: Triggering deferred initialization of Spring Data repositories…
+2020-12-21 15:42:27,643 INFO  [restartedMain] DeferredRepositoryInitializationListener: Spring Data repositories initialized!
+2020-12-21 15:42:27,665 INFO  [restartedMain] WebApiApplication: Started WebApiApplication in 12.599 seconds (JVM running for 14.088)
+2020-12-21 15:43:28,441 INFO  [http-nio-8080-exec-1] [/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-21 15:43:28,441 INFO  [http-nio-8080-exec-1] DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2020-12-21 15:43:28,461 INFO  [http-nio-8080-exec-1] DispatcherServlet: Completed initialization in 19 ms
+2020-12-21 15:43:28,629 INFO  [http-nio-8080-exec-1] ProductController: getProductByCatalogId:1|1
+2020-12-21 15:47:58,124 INFO  [restartedMain] WebApiApplication: Starting WebApiApplication on DESKTOP-7O857RT with PID 1172 (D:\javaapp\web-api\target\classes started by ria in D:\javaapp\web-api)
+2020-12-21 15:47:58,134 INFO  [restartedMain] WebApiApplication: No active profile set, falling back to default profiles: default
+2020-12-21 15:47:58,295 INFO  [restartedMain] DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-21 15:47:58,295 INFO  [restartedMain] DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-21 15:48:01,732 INFO  [restartedMain] RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-21 15:48:01,913 INFO  [restartedMain] RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 164ms. Found 6 JPA repository interfaces.
+2020-12-21 15:48:03,596 INFO  [restartedMain] TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2020-12-21 15:48:03,618 INFO  [restartedMain] Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8080"]
+2020-12-21 15:48:03,618 INFO  [restartedMain] StandardService: Starting service [Tomcat]
+2020-12-21 15:48:03,618 INFO  [restartedMain] StandardEngine: Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-21 15:48:03,770 INFO  [restartedMain] [/]: Initializing Spring embedded WebApplicationContext
+2020-12-21 15:48:03,770 INFO  [restartedMain] ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 5475 ms
+2020-12-21 15:48:04,304 INFO  [restartedMain] HikariDataSource: HikariPool-1 - Starting...
+2020-12-21 15:48:04,314 WARN  [restartedMain] DriverDataSource: Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-21 15:48:04,576 INFO  [restartedMain] HikariDataSource: HikariPool-1 - Start completed.
+2020-12-21 15:48:04,807 INFO  [restartedMain] ThreadPoolTaskExecutor: Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-21 15:48:04,908 INFO  [task-1] LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-21 15:48:05,039 INFO  [task-1] Version: HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-21 15:48:05,411 INFO  [task-1] Version: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-21 15:48:05,582 WARN  [restartedMain] JpaBaseConfiguration$JpaWebConfiguration: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-21 15:48:05,774 INFO  [task-1] Dialect: HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-12-21 15:48:06,036 INFO  [restartedMain] EndpointLinksResolver: Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-21 15:48:06,247 INFO  [restartedMain] PropertySourcedRequestMappingHandlerMapping: Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-12-21 15:48:06,549 INFO  [restartedMain] OptionalLiveReloadServer: LiveReload server is running on port 35729
+2020-12-21 15:48:08,381 INFO  [task-1] JtaPlatformInitiator: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-21 15:48:08,391 INFO  [task-1] LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-21 15:48:08,623 INFO  [restartedMain] Http11NioProtocol: Starting ProtocolHandler ["http-nio-8080"]
+2020-12-21 15:48:08,663 INFO  [restartedMain] TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-21 15:48:08,663 INFO  [restartedMain] DocumentationPluginsBootstrapper: Context refreshed
+2020-12-21 15:48:08,703 INFO  [restartedMain] DocumentationPluginsBootstrapper: Found 1 custom documentation plugin(s)
+2020-12-21 15:48:08,764 INFO  [restartedMain] ApiListingReferenceScanner: Scanning for api listing references
+2020-12-21 15:48:09,126 INFO  [restartedMain] CachingOperationNameGenerator: Generating unique operation named: addNewPersonUsingPOST_1
+2020-12-21 15:48:09,187 INFO  [restartedMain] DeferredRepositoryInitializationListener: Triggering deferred initialization of Spring Data repositories…
+2020-12-21 15:48:09,972 INFO  [restartedMain] DeferredRepositoryInitializationListener: Spring Data repositories initialized!
+2020-12-21 15:48:10,000 INFO  [restartedMain] WebApiApplication: Started WebApiApplication in 12.774 seconds (JVM running for 14.604)
+2020-12-21 16:01:51,309 INFO  [http-nio-8080-exec-1] [/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-21 16:01:51,310 INFO  [http-nio-8080-exec-1] DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2020-12-21 16:01:51,325 INFO  [http-nio-8080-exec-1] DispatcherServlet: Completed initialization in 13 ms
+2020-12-21 16:02:32,441 INFO  [http-nio-8080-exec-2] ProductController: addProduct:com.example.webapi.model.Product@7b6b577
+2020-12-21 16:10:10,056 INFO  [restartedMain] WebApiApplication: Starting WebApiApplication on DESKTOP-7O857RT with PID 9472 (D:\javaapp\web-api\target\classes started by ria in D:\javaapp\web-api)
+2020-12-21 16:10:10,056 INFO  [restartedMain] WebApiApplication: No active profile set, falling back to default profiles: default
+2020-12-21 16:10:10,232 INFO  [restartedMain] DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-21 16:10:10,232 INFO  [restartedMain] DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-21 16:10:12,870 INFO  [restartedMain] RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-21 16:10:12,998 INFO  [restartedMain] RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 125ms. Found 6 JPA repository interfaces.
+2020-12-21 16:10:14,594 INFO  [restartedMain] TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2020-12-21 16:10:14,609 INFO  [restartedMain] Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8080"]
+2020-12-21 16:10:14,609 INFO  [restartedMain] StandardService: Starting service [Tomcat]
+2020-12-21 16:10:14,609 INFO  [restartedMain] StandardEngine: Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-21 16:10:14,825 INFO  [restartedMain] [/]: Initializing Spring embedded WebApplicationContext
+2020-12-21 16:10:14,827 INFO  [restartedMain] ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 4587 ms
+2020-12-21 16:10:15,353 INFO  [restartedMain] HikariDataSource: HikariPool-1 - Starting...
+2020-12-21 16:10:15,368 WARN  [restartedMain] DriverDataSource: Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-21 16:10:15,699 INFO  [restartedMain] HikariDataSource: HikariPool-1 - Start completed.
+2020-12-21 16:10:15,942 INFO  [restartedMain] ThreadPoolTaskExecutor: Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-21 16:10:16,033 INFO  [task-1] LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-21 16:10:16,194 INFO  [task-1] Version: HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-21 16:10:16,656 INFO  [task-1] Version: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-21 16:10:16,708 WARN  [restartedMain] JpaBaseConfiguration$JpaWebConfiguration: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-21 16:10:17,040 INFO  [task-1] Dialect: HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-12-21 16:10:17,131 INFO  [restartedMain] EndpointLinksResolver: Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-21 16:10:17,393 INFO  [restartedMain] PropertySourcedRequestMappingHandlerMapping: Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-12-21 16:10:17,705 INFO  [restartedMain] OptionalLiveReloadServer: LiveReload server is running on port 35729
+2020-12-21 16:10:19,274 INFO  [task-1] JtaPlatformInitiator: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-21 16:10:19,274 INFO  [task-1] LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-21 16:10:19,736 INFO  [restartedMain] Http11NioProtocol: Starting ProtocolHandler ["http-nio-8080"]
+2020-12-21 16:10:19,776 INFO  [restartedMain] TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-21 16:10:19,776 INFO  [restartedMain] DocumentationPluginsBootstrapper: Context refreshed
+2020-12-21 16:10:19,835 INFO  [restartedMain] DocumentationPluginsBootstrapper: Found 1 custom documentation plugin(s)
+2020-12-21 16:10:19,905 INFO  [restartedMain] ApiListingReferenceScanner: Scanning for api listing references
+2020-12-21 16:10:20,320 INFO  [restartedMain] CachingOperationNameGenerator: Generating unique operation named: addNewPersonUsingPOST_1
+2020-12-21 16:10:20,381 INFO  [restartedMain] DeferredRepositoryInitializationListener: Triggering deferred initialization of Spring Data repositories…
+2020-12-21 16:10:21,245 INFO  [restartedMain] DeferredRepositoryInitializationListener: Spring Data repositories initialized!
+2020-12-21 16:10:21,267 INFO  [restartedMain] WebApiApplication: Started WebApiApplication in 11.976 seconds (JVM running for 13.447)
+2020-12-21 16:15:05,437 INFO  [http-nio-8080-exec-1] [/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-21 16:15:05,437 INFO  [http-nio-8080-exec-1] DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2020-12-21 16:15:05,460 INFO  [http-nio-8080-exec-1] DispatcherServlet: Completed initialization in 22 ms
+2020-12-21 16:15:06,035 INFO  [http-nio-8080-exec-1] ProductController: addProduct:{"id":15,"Name":"Шашлык молотый","Description":"","insDate":"Dec 21, 2020 4:15:05 PM","State":1,"Price":11000.0,"catalog":{"id":3}}
+2020-12-21 16:44:09,430 INFO  [restartedMain] WebApiApplication: Starting WebApiApplication on DESKTOP-7O857RT with PID 9768 (D:\javaapp\web-api\target\classes started by ria in D:\javaapp\web-api)
+2020-12-21 16:44:09,438 INFO  [restartedMain] WebApiApplication: No active profile set, falling back to default profiles: default
+2020-12-21 16:44:09,569 INFO  [restartedMain] DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-21 16:44:09,569 INFO  [restartedMain] DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-21 16:44:12,256 INFO  [restartedMain] RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-21 16:44:12,417 INFO  [restartedMain] RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 144ms. Found 6 JPA repository interfaces.
+2020-12-21 16:44:14,018 INFO  [restartedMain] TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2020-12-21 16:44:14,040 INFO  [restartedMain] Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8080"]
+2020-12-21 16:44:14,040 INFO  [restartedMain] StandardService: Starting service [Tomcat]
+2020-12-21 16:44:14,040 INFO  [restartedMain] StandardEngine: Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-21 16:44:14,243 INFO  [restartedMain] [/]: Initializing Spring embedded WebApplicationContext
+2020-12-21 16:44:14,243 INFO  [restartedMain] ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 4672 ms
+2020-12-21 16:44:14,841 INFO  [restartedMain] HikariDataSource: HikariPool-1 - Starting...
+2020-12-21 16:44:14,851 WARN  [restartedMain] DriverDataSource: Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-21 16:44:15,153 INFO  [restartedMain] HikariDataSource: HikariPool-1 - Start completed.
+2020-12-21 16:44:15,445 INFO  [restartedMain] ThreadPoolTaskExecutor: Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-21 16:44:15,586 INFO  [task-1] LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-21 16:44:15,727 INFO  [task-1] Version: HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-21 16:44:16,200 INFO  [task-1] Version: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-21 16:44:16,200 WARN  [restartedMain] JpaBaseConfiguration$JpaWebConfiguration: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-21 16:44:16,552 INFO  [task-1] Dialect: HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-12-21 16:44:16,623 INFO  [restartedMain] EndpointLinksResolver: Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-21 16:44:16,824 INFO  [restartedMain] PropertySourcedRequestMappingHandlerMapping: Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-12-21 16:44:17,106 INFO  [restartedMain] OptionalLiveReloadServer: LiveReload server is running on port 35729
+2020-12-21 16:44:18,708 INFO  [task-1] JtaPlatformInitiator: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-21 16:44:18,909 INFO  [task-1] LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-21 16:44:19,175 INFO  [restartedMain] Http11NioProtocol: Starting ProtocolHandler ["http-nio-8080"]
+2020-12-21 16:44:19,215 INFO  [restartedMain] TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-21 16:44:19,215 INFO  [restartedMain] DocumentationPluginsBootstrapper: Context refreshed
+2020-12-21 16:44:19,274 INFO  [restartedMain] DocumentationPluginsBootstrapper: Found 1 custom documentation plugin(s)
+2020-12-21 16:44:19,336 INFO  [restartedMain] ApiListingReferenceScanner: Scanning for api listing references
+2020-12-21 16:44:19,809 INFO  [restartedMain] CachingOperationNameGenerator: Generating unique operation named: addNewPersonUsingPOST_1
+2020-12-21 16:44:19,870 INFO  [restartedMain] DeferredRepositoryInitializationListener: Triggering deferred initialization of Spring Data repositories…
+2020-12-21 16:44:20,734 INFO  [restartedMain] DeferredRepositoryInitializationListener: Spring Data repositories initialized!
+2020-12-21 16:44:20,766 INFO  [restartedMain] WebApiApplication: Started WebApiApplication in 12.208 seconds (JVM running for 13.713)
+2020-12-21 16:45:44,676 INFO  [http-nio-8080-exec-1] [/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-21 16:45:44,676 INFO  [http-nio-8080-exec-1] DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2020-12-21 16:45:44,691 INFO  [http-nio-8080-exec-1] DispatcherServlet: Completed initialization in 14 ms
+2020-12-21 16:45:45,160 INFO  [http-nio-8080-exec-1] PersonController: addProduct:{"id":0,"firstName":"User","lastName":"Test","email":"utest@mail.com"}{"id":5,"firstName":"User","lastName":"Test","email":"utest@mail.com","createdAt":"Dec 21, 2020 4:45:44 PM"}
+2020-12-21 16:46:27,872 INFO  [http-nio-8080-exec-2] MsisdnController: addProduct:{"id":6,"Msisdn":"000000000009","insDate":"Dec 21, 2020 4:46:27 PM","person":{"id":5}}
+2020-12-21 16:46:31,668 INFO  [http-nio-8080-exec-3] MsisdnController: addProduct:{"id":7,"Msisdn":"000000000010","insDate":"Dec 21, 2020 4:46:31 PM","person":{"id":5}}
+2020-12-21 16:47:43,988 INFO  [http-nio-8080-exec-7] ProductController: getProductByCatalogId:1|1
+2020-12-21 16:50:27,255 INFO  [http-nio-8080-exec-10] CartController: addProduct:{"id":0,"products":[{"id":2},{"id":2},{"id":7},{"id":8},{"id":11}],"insDate":"Dec 21, 2020 4:50:27 PM","State":0,"person":{"id":1}}
+2020-12-21 16:50:40,337 INFO  [http-nio-8080-exec-1] CartController: addProduct:{"Price":43000.0,"inPersonId":1,"inCartId":28}
+2020-12-21 16:50:46,242 INFO  [http-nio-8080-exec-2] CartController: addProduct:{"id":1}
+2020-12-21 16:52:10,158 INFO  [http-nio-8080-exec-4] CartController: addProduct:{"id":28}{"Msg":"OK","Code":1}
+2020-12-21 16:52:45,451 INFO  [http-nio-8080-exec-5] CartController: addProduct:{"id":0,"products":[{"id":2},{"id":2},{"id":7},{"id":8},{"id":11}],"insDate":"Dec 21, 2020 4:52:45 PM","State":0,"person":{"id":1}}
+2020-12-21 16:53:13,849 INFO  [http-nio-8080-exec-6] CartController: addProduct:{"Price":43000.0,"inPersonId":1,"inCartId":29}
+2020-12-21 16:53:29,349 INFO  [http-nio-8080-exec-7] CartController: addProduct:{"id":29}{"Msg":"OK","Code":1}
+2020-12-21 16:54:53,375 INFO  [restartedMain] WebApiApplication: Starting WebApiApplication on DESKTOP-7O857RT with PID 5652 (D:\javaapp\web-api\target\classes started by ria in D:\javaapp\web-api)
+2020-12-21 16:54:53,395 INFO  [restartedMain] WebApiApplication: No active profile set, falling back to default profiles: default
+2020-12-21 16:54:53,544 INFO  [restartedMain] DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-21 16:54:53,546 INFO  [restartedMain] DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-21 16:54:56,337 INFO  [restartedMain] RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-21 16:54:56,506 INFO  [restartedMain] RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 143ms. Found 6 JPA repository interfaces.
+2020-12-21 16:54:58,241 INFO  [restartedMain] TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2020-12-21 16:54:58,272 INFO  [restartedMain] Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8080"]
+2020-12-21 16:54:58,272 INFO  [restartedMain] StandardService: Starting service [Tomcat]
+2020-12-21 16:54:58,272 INFO  [restartedMain] StandardEngine: Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-21 16:54:58,457 INFO  [restartedMain] [/]: Initializing Spring embedded WebApplicationContext
+2020-12-21 16:54:58,457 INFO  [restartedMain] ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 4911 ms
+2020-12-21 16:54:58,975 INFO  [restartedMain] HikariDataSource: HikariPool-1 - Starting...
+2020-12-21 16:54:58,991 WARN  [restartedMain] DriverDataSource: Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-21 16:54:59,318 INFO  [restartedMain] HikariDataSource: HikariPool-1 - Start completed.
+2020-12-21 16:54:59,570 INFO  [restartedMain] ThreadPoolTaskExecutor: Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-21 16:54:59,660 INFO  [task-1] LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-21 16:54:59,802 INFO  [task-1] Version: HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-21 16:55:00,233 INFO  [task-1] Version: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-21 16:55:00,364 WARN  [restartedMain] JpaBaseConfiguration$JpaWebConfiguration: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-21 16:55:00,596 INFO  [task-1] Dialect: HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-12-21 16:55:00,888 INFO  [restartedMain] EndpointLinksResolver: Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-21 16:55:01,099 INFO  [restartedMain] PropertySourcedRequestMappingHandlerMapping: Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-12-21 16:55:01,411 INFO  [restartedMain] OptionalLiveReloadServer: LiveReload server is running on port 35729
+2020-12-21 16:55:02,910 INFO  [task-1] JtaPlatformInitiator: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-21 16:55:03,143 INFO  [task-1] LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-21 16:55:03,384 INFO  [restartedMain] Http11NioProtocol: Starting ProtocolHandler ["http-nio-8080"]
+2020-12-21 16:55:03,425 INFO  [restartedMain] TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-21 16:55:03,425 INFO  [restartedMain] DocumentationPluginsBootstrapper: Context refreshed
+2020-12-21 16:55:03,475 INFO  [restartedMain] DocumentationPluginsBootstrapper: Found 1 custom documentation plugin(s)
+2020-12-21 16:55:03,525 INFO  [restartedMain] ApiListingReferenceScanner: Scanning for api listing references
+2020-12-21 16:55:03,938 INFO  [restartedMain] CachingOperationNameGenerator: Generating unique operation named: addNewPersonUsingPOST_1
+2020-12-21 16:55:04,008 INFO  [restartedMain] DeferredRepositoryInitializationListener: Triggering deferred initialization of Spring Data repositories…
+2020-12-21 16:55:04,854 INFO  [restartedMain] DeferredRepositoryInitializationListener: Spring Data repositories initialized!
+2020-12-21 16:55:04,874 INFO  [restartedMain] WebApiApplication: Started WebApiApplication in 12.326 seconds (JVM running for 13.868)
+2020-12-21 16:55:16,937 INFO  [http-nio-8080-exec-1] [/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-21 16:55:16,938 INFO  [http-nio-8080-exec-1] DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2020-12-21 16:55:16,952 INFO  [http-nio-8080-exec-1] DispatcherServlet: Completed initialization in 14 ms
+2020-12-21 16:55:17,260 INFO  [http-nio-8080-exec-1] CartController: addProduct:{"id":29}{"Msg":"Already payed or canceled","Code":-1}

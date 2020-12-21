@@ -4,6 +4,9 @@ import com.example.webapi.model.Msisdn;
 import com.example.webapi.model.Person;
 import com.example.webapi.repository.MsisdnRepository;
 import com.example.webapi.repository.PersonRepository;
+import com.google.gson.Gson;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +20,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1")
 public class MsisdnController {
+
+    private static final Logger logger
+            = LoggerFactory.getLogger(MsisdnController.class);
 
     @Autowired
     private MsisdnRepository msisdnRepository;
@@ -41,10 +47,18 @@ public class MsisdnController {
         try {
             input.setInsDate(new Date());
             msisdnRepository.save(input);
+
+            Gson gson = new Gson();
+            String json = gson.toJson(input);
+            logger.info("addProduct:" + json);
         }
         catch (Exception e){
             e.printStackTrace();
             input.setId(-1);
+
+            Gson gson = new Gson();
+            String json = gson.toJson(input);
+            logger.info("addProduct:" + json);
         }
 
         return input;

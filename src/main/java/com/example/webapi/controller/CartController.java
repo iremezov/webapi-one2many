@@ -5,7 +5,10 @@ import com.example.webapi.repository.CartRepository;
 import com.example.webapi.repository.PersonRepository;
 import com.example.webapi.repository.ProductDetailRepository;
 import com.example.webapi.repository.ProductRepository;
+import com.google.gson.Gson;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +21,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/cart")
 public class CartController {
+
+    private static final Logger logger
+            = LoggerFactory.getLogger(CartController.class);
 
     @Autowired
     private CartRepository cartRepository;
@@ -46,6 +52,9 @@ public class CartController {
                 p.get().getProductDetails().setTotalCount(totalCount - 1);
             }
 
+            Gson gson = new Gson();
+            String json = gson.toJson(input);
+            logger.info("addProduct:" + json);
 
             cartRepository.save(input);
             return input;
@@ -53,6 +62,11 @@ public class CartController {
         catch (Exception e){
             e.printStackTrace();
             input.setState(-1);
+
+            Gson gson = new Gson();
+            String json = gson.toJson(input);
+            logger.info("addProduct:" + json);
+
             return input;
         }
     }
@@ -60,6 +74,11 @@ public class CartController {
 
     @RequestMapping(value = "/getCartByUserId", method = RequestMethod.POST, headers = "Accept=application/json")
     public Optional<List<Cart>> getActiveProducts(@RequestBody Person input) {
+
+        Gson gson = new Gson();
+        String json = gson.toJson(input);
+        logger.info("addProduct:" + json);
+
         return cartRepository.findByPersonAndState(input.getId(), 0);
     }
 
@@ -81,12 +100,22 @@ public class CartController {
         }
 
         input.setPrice(sum);
+
+        Gson gson = new Gson();
+        String json = gson.toJson(input);
+        logger.info("addProduct:" + json);
+
         return input;
     }
 
     @RequestMapping(value = "/getCartPrice", method = RequestMethod.POST, headers = "Accept=application/json")
     public Price getCartPriceByCartId(@RequestBody Price input){
         input.setPrice(cartRepository.findSumByCartPerson(input.inCartId, input.inPersonId));
+
+        Gson gson = new Gson();
+        String json = gson.toJson(input);
+        logger.info("addProduct:" + json);
+
         return input;
     }
 
@@ -102,11 +131,21 @@ public class CartController {
 
             r.setCode(1);
             r.setMsg("OK");
+
+            Gson gson = new Gson();
+            String json = gson.toJson(input) + gson.toJson(r);
+            logger.info("addProduct:" + json);
+
             return r;
 
         }catch (Exception e){
             r.setCode(-1);
             r.setMsg(e.toString());
+
+            Gson gson = new Gson();
+            String json = gson.toJson(input) + gson.toJson(r);
+            logger.info("addProduct:" + json);
+
             return r;
         }
 
@@ -121,7 +160,6 @@ public class CartController {
         try{
 
             Optional<Cart> c = cartRepository.findById(input.getId());
-
 
             if(c.get().getState() == 0){
 
@@ -138,16 +176,31 @@ public class CartController {
             }else{
                 r.setCode(-1);
                 r.setMsg("Already payed or canceled");
+
+                Gson gson = new Gson();
+                String json = gson.toJson(input) + gson.toJson(r);
+                logger.info("addProduct:" + json);
+
                 return r;
             }
 
             r.setCode(1);
             r.setMsg("OK");
+
+            Gson gson = new Gson();
+            String json = gson.toJson(input) + gson.toJson(r);
+            logger.info("addProduct:" + json);
+
             return r;
 
         }catch (Exception e){
             r.setCode(-1);
             r.setMsg(e.toString());
+
+            Gson gson = new Gson();
+            String json = gson.toJson(input) + gson.toJson(r);
+            logger.info("addProduct:" + json);
+
             return r;
         }
 
@@ -180,15 +233,30 @@ public class CartController {
             }else{
                 r.setCode(-1);
                 r.setMsg("Already payed or canceled");
+
+                Gson gson = new Gson();
+                String json = gson.toJson(input) + gson.toJson(r);
+                logger.info("addProduct:" + json);
+
                 return r;
             }
 
             r.setCode(1);
             r.setMsg("OK");
+
+            Gson gson = new Gson();
+            String json = gson.toJson(input) + gson.toJson(r);
+            logger.info("addProduct:" + json);
+
             return r;
         }catch (Exception e){
             r.setCode(-1);
             r.setMsg(e.toString());
+
+            Gson gson = new Gson();
+            String json = gson.toJson(input) + gson.toJson(r);
+            logger.info("addProduct:" + json);
+
             return r;
         }
     }

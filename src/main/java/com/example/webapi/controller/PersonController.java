@@ -6,6 +6,8 @@ import com.example.webapi.repository.PersonRepository;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,9 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1")
 public class PersonController {
+
+    private static final Logger logger
+            = LoggerFactory.getLogger(PersonController.class);
 
     @Autowired
     private PersonRepository personRepository;
@@ -50,6 +55,11 @@ public class PersonController {
         }
 
         personRepository.save(n);
+
+        Gson gson = new Gson();
+        String json = gson.toJson(input) + gson.toJson(n);
+        logger.info("addProduct:" + json);
+
         return n;
     }
 

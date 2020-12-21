@@ -2,8 +2,11 @@ package com.example.webapi.controller;
 
 import com.example.webapi.model.Catalog;
 import com.example.webapi.repository.CatalogRepository;
+import com.google.gson.Gson;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +19,9 @@ import java.util.List;
 @RequestMapping("/api/catalog")
 public class CatalogController {
 
+    private static final Logger logger
+            = LoggerFactory.getLogger(CatalogController.class);
+
     @Autowired
     private CatalogRepository catalogRepository;
 
@@ -25,6 +31,11 @@ public class CatalogController {
     Catalog addNewCatalog (@ApiParam("Информация о каталоге id, name.")
                            @RequestBody Catalog input){
         catalogRepository.save(input);
+
+        Gson gson = new Gson();
+        String json = gson.toJson(input);
+        logger.info("addProduct:" + json);
+
         return input;
     }
 
